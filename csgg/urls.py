@@ -15,11 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from .views import main
+from .views import main, login, signup, on_game
 from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('main/', main.as_view())
+    path('main/', main.as_view()),
+    path('login/', login.as_view()),
+    path('signup/', signup.as_view()),
+    path('content/', on_game.as_view())
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
